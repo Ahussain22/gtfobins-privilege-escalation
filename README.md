@@ -30,6 +30,7 @@ This command lists which commands the current user is allowed to run with `sudo`
 ```bash
 (ALL) NOPASSWD: /usr/bin/find
 ```
+![Sudo-l](./images/sudo-l.png)
 
 ### Breakdown of the Output
 - `(ALL)` means the command can be run as any user, including `root`
@@ -42,7 +43,7 @@ This means the `find` binary can be executed with root privileges without authen
 
 ### 3. Identify the Exploitation Method
 Searched for `find` on GTFOBins and identified that it can be abused to execute a shell when run with `sudo`.
-
+![GTFO](./images/GTFO.png)
 ---
 
 ### 4. Execute the Exploit
@@ -78,7 +79,7 @@ This makes the exploit faster and cleaner because only one shell is needed.
 This command abuses the `find` binary to execute `/bin/bash` as `root`.
 
 That results in a **root shell**, which means full administrative access to the system.
-
+![root](./images/root.png)
 ---
 
 ### 6. Verify Root Access
@@ -94,7 +95,7 @@ root
 ```
 
 This confirms that privilege escalation was successful.
-
+![whoami](./images/whoami.png)
 ---
 
 ## 🚨 Findings
@@ -110,15 +111,6 @@ This confirms that privilege escalation was successful.
 - `NOPASSWD` allows commands to run without requiring authentication
 - GTFOBins is a valuable resource for identifying known privilege escalation techniques
 - Legitimate binaries such as `find` can be dangerous if they are given excessive privileges
-
----
-
-## 📷 Evidence
-Add your screenshot here:
-
-```markdown
-![sudo -l output showing find as NOPASSWD](images/gtfobins-find.png)
-```
 
 ---
 
